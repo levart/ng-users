@@ -1,0 +1,38 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">სახელი</th>
+    <th scope="col">გვარი</th>
+    <th scope="col">ელ.ფოსტა</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users$ | async">
+    <th scope="row">{{user.id}}</th>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.email}}</td>
+    <td>
+      <button type="button" class="btn btn-sm btn-outline-secondary mr-2" (click)="getUserById(user.id)"><i
+        class="bi bi-eye"></i></button>
+      <button type="button" class="btn btn-sm btn-outline-secondary mr-2" [routerLink]="['/users/update', user.id]"><i
+        class="bi bi-pencil"></i></button>
+      <button type="button" class="btn btn-sm btn-outline-danger" (click)="deleteUser(user.id)"><i
+        class="bi bi-trash"></i></button>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<ng-container *ngIf="user">
+  <ul class="list-group">
+    <li class="list-group-item">{{user.id}}</li>
+    <li class="list-group-item">{{user.firstName}}</li>
+    <li class="list-group-item">{{user.lastName}}</li>
+    <li class="list-group-item">{{user.email}}</li>
+  </ul>
+</ng-container>
+

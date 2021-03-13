@@ -1,0 +1,26 @@
+
+<div class="container mt-5">
+
+
+  <form [formGroup]="form" (ngSubmit)="createUser()">
+    <div class="mb-3">
+      <label for="firstName" class="form-label">სახელი</label>
+      <input type="text" class="form-control" id="firstName"  formControlName="firstName">
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">გვარი</label>
+      <input type="text" class="form-control" id="lastName"  formControlName="lastName">
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">ელ.ფოსტა</label>
+      <input type="email" class="form-control" id="email"  formControlName="email">
+    </div>
+
+    <button type="submit" class="btn btn-primary">შენახვა</button>
+  </form>
+
+  <div *ngIf="isCreated" class="alert alert-success mt-2" role="alert">
+    მომხმარებელი წარმატებით შეიქმნა
+  </div>
+</div>
